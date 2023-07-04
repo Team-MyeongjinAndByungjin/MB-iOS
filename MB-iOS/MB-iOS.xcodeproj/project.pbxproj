@@ -39,6 +39,7 @@
 		4BFB00FC2A54264800FD1480 /* CouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00FB2A54264800FD1480 /* CouponTableViewCell.swift */; };
 		4BFB00FF2A543D6700FD1480 /* UIView+roundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00FE2A543D6700FD1480 /* UIView+roundCorners.swift */; };
 		4BFB01022A54471700FD1480 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFB01012A54471700FD1480 /* Kingfisher */; };
+		4BFB01062A5450DD00FD1480 /* CouponAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB01052A5450DD00FD1480 /* CouponAPI.swift */; };
 		880A42BF2A544B880073DDDC /* CouponRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A42BE2A544B880073DDDC /* CouponRegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +73,7 @@
 		4BFB00F72A540FE600FD1480 /* MainCouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCouponViewController.swift; sourceTree = "<group>"; };
 		4BFB00FB2A54264800FD1480 /* CouponTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponTableViewCell.swift; sourceTree = "<group>"; };
 		4BFB00FE2A543D6700FD1480 /* UIView+roundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+roundCorners.swift"; sourceTree = "<group>"; };
+		4BFB01052A5450DD00FD1480 /* CouponAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponAPI.swift; sourceTree = "<group>"; };
 		880A42BE2A544B880073DDDC /* CouponRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponRegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,8 +130,9 @@
 		4BFB00BC2A53E11000FD1480 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				4BFB00F32A5409A000FD1480 /* Plugin */,
 				4BFB00EA2A53F73700FD1480 /* Header */,
+				4BFB00F32A5409A000FD1480 /* Plugin */,
+				4BFB01032A5450C800FD1480 /* Coupon */,
 				4BFB00E22A53F58B00FD1480 /* Auth */,
 			);
 			path = Service;
@@ -271,6 +274,22 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		4BFB01032A5450C800FD1480 /* Coupon */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB01042A5450D500FD1480 /* API */,
+			);
+			path = Coupon;
+			sourceTree = "<group>";
+		};
+		4BFB01042A5450D500FD1480 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB01052A5450DD00FD1480 /* CouponAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
 		880A42BD2A544B6C0073DDDC /* Coupon */ = {
 			isa = PBXGroup;
 			children = (
@@ -388,6 +407,7 @@
 				4BFB00A22A53C14500FD1480 /* SceneDelegate.swift in Sources */,
 				4BFB00E52A53F59E00FD1480 /* AuthAPI.swift in Sources */,
 				4BFB00FF2A543D6700FD1480 /* UIView+roundCorners.swift in Sources */,
+				4BFB01062A5450DD00FD1480 /* CouponAPI.swift in Sources */,
 				880A42BF2A544B880073DDDC /* CouponRegisterViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
