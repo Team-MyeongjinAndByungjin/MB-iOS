@@ -19,11 +19,11 @@ extension AuthAPI: TargetType {
             return ""
         }
     }
-    
+
     var method: Moya.Method {
         return .post
     }
-    
+
     var task: Moya.Task {
         switch self {
         case .login(let id, let password):

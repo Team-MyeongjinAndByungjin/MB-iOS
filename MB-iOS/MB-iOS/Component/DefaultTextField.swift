@@ -43,9 +43,10 @@ class DefaultTextField: UITextField {
     }
 
     override func layoutSubviews() {
+        super.layoutSubviews()
         self.addSubview(titleLabel)
         makeConstraints()
-        self.placeholder = "ksladjf;laksjdf"
+        fieldSetting()
     }
 
     private func makeConstraints() {
@@ -56,5 +57,15 @@ class DefaultTextField: UITextField {
         self.snp.makeConstraints {
             $0.height.equalTo(44)
         }
+    }
+
+    private func fieldSetting() {
+        self.attributedPlaceholder = NSAttributedString(
+            string: placeholderText,
+            attributes: [
+                NSAttributedString.Key.foregroundColor: UIColor(named: "gray-2")!,
+                NSAttributedString.Key.font: UIFont(name: "Roboto-Regular", size: 12) as Any
+            ]
+        )
     }
 }
