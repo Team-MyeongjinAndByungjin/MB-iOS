@@ -39,8 +39,8 @@ extension CouponAPI: TargetType {
                 parameters: [
                     "name": name,
                     "price": price,
-                    "imageUrl": imageURL,
-                    "expiredAt": expiredAt
+                    "image_url": imageURL,
+                    "expired_at": expiredAt
                 ],
                 encoding: JSONEncoding.default)
         default:
