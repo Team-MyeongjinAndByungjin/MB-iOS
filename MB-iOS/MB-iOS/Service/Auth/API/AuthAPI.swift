@@ -8,13 +8,13 @@ enum AuthAPI {
 
 extension AuthAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "")!
+        return URL(string: "http://192.168.1.135:8080/users")!
     }
     
     var path: String {
         switch self {
         case .login:
-            return ""
+            return "/token"
         case .signUp:
             return ""
         }
@@ -29,13 +29,13 @@ extension AuthAPI: TargetType {
         case .login(let id, let password):
             return .requestParameters(
                 parameters: [
-                    "id": id,
+                    "account_id": id,
                     "password": password
                 ], encoding: JSONEncoding.default)
         case .signUp(let id, let password):
             return .requestParameters(
                 parameters: [
-                    "id": id,
+                    "account_id": id,
                     "password": password
                 ], encoding: JSONEncoding.default)
         }

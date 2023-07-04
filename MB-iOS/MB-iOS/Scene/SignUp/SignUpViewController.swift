@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Then
+import Moya
 
 class SignUpViewController: UIViewController {
 
@@ -34,6 +35,7 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        signUpButton.addTarget(self, action: #selector(clickSignUpButton), for: .touchUpInside)
     }
 
     override func viewDidLayoutSubviews() {
@@ -80,5 +82,31 @@ class SignUpViewController: UIViewController {
             $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
         }
     }
+}
 
+extension SignUpViewController {
+    @objc func clickSignUpButton(sender: UIButton) {
+        let provider = MoyaProvider<AuthAPI>(plugins: [MoyaLoggerPlugin()])
+        guard let idText = self.idTextField.text,
+              let passwordText = self.passwordTextField.text
+        else { return }
+
+        provider.request(.signUp(id: idText, password: passwordText)) { res in
+            switch res {
+            case .success(let result):
+                switch result.statusCode {
+                case 201:
+                    if let data = try? JSONDecoder().decode(AuthResponse.self, from: result.data) {
+                        Token.accessToken = data.token
+                    } else {
+                        print("signUp auth json decode fail")
+                    }
+                default:
+                    print(result.statusCode)
+                }
+            case .failure(let err):
+                print("\(err.localizedDescription)")
+            }
+        }
+    }
 }

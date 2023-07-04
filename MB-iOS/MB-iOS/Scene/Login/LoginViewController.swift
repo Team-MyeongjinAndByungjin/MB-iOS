@@ -8,6 +8,7 @@
 import UIKit
 import SnapKit
 import Then
+import Moya
 
 class LoginViewController: UIViewController {
     private let mainTitle = UILabel().then {
@@ -40,6 +41,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        loginButton.addTarget(self, action: #selector(clickLoginButton), for: .touchUpInside)
         signInButton.addTarget(self, action: #selector(clickSingUpButton), for: .touchUpInside)
     }
 
@@ -99,5 +101,30 @@ extension LoginViewController {
     @objc func clickSingUpButton(sender: UIButton) {
         let signUpView = SignUpViewController()
         self.navigationController?.pushViewController(signUpView, animated: true)
+    }
+
+    @objc func clickLoginButton(sender: UIButton) {
+        let provider = MoyaProvider<AuthAPI>(plugins: [MoyaLoggerPlugin()])
+        guard let idText = self.idTextField.text,
+              let passwordText = self.passwordTextField.text
+        else { return }
+
+        provider.request(.login(id: idText, password: passwordText)) { res in
+            switch res {
+            case .success(let result):
+                switch result.statusCode {
+                case 201:
+                    if let data = try? JSONDecoder().decode(AuthResponse.self, from: result.data) {
+                        Token.accessToken = data.token
+                    } else {
+                        print("auth json decode fail")
+                    }
+                default:
+                    print(result.statusCode)
+                }
+            case .failure(let err):
+                print("\(err.localizedDescription)")
+            }
+        }
     }
 }
