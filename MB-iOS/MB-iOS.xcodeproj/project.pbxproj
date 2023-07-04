@@ -15,6 +15,24 @@
 		4BFB00B52A53D21700FD1480 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFB00B42A53D21700FD1480 /* Moya */; };
 		4BFB00B82A53D22400FD1480 /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFB00B72A53D22400FD1480 /* Then */; };
 		4BFB00BB2A53D23300FD1480 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFB00BA2A53D23300FD1480 /* SnapKit */; };
+		4BFB00BF2A53E32E00FD1480 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00BE2A53E32E00FD1480 /* LoginViewController.swift */; };
+		4BFB00C42A53E42700FD1480 /* DefaultTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00C32A53E42700FD1480 /* DefaultTextField.swift */; };
+		4BFB00D32A53E5F200FD1480 /* Roboto-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00C72A53E5F200FD1480 /* Roboto-LightItalic.ttf */; };
+		4BFB00D42A53E5F200FD1480 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00C82A53E5F200FD1480 /* Roboto-Medium.ttf */; };
+		4BFB00D52A53E5F200FD1480 /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00C92A53E5F200FD1480 /* Roboto-BlackItalic.ttf */; };
+		4BFB00D62A53E5F200FD1480 /* Roboto-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00CA2A53E5F200FD1480 /* Roboto-MediumItalic.ttf */; };
+		4BFB00D72A53E5F200FD1480 /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00CB2A53E5F200FD1480 /* Roboto-Regular.ttf */; };
+		4BFB00D82A53E5F200FD1480 /* Roboto-Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00CC2A53E5F200FD1480 /* Roboto-Thin.ttf */; };
+		4BFB00D92A53E5F200FD1480 /* Roboto-ThinItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00CD2A53E5F200FD1480 /* Roboto-ThinItalic.ttf */; };
+		4BFB00DA2A53E5F200FD1480 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00CE2A53E5F200FD1480 /* Roboto-Bold.ttf */; };
+		4BFB00DB2A53E5F200FD1480 /* Roboto-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00CF2A53E5F200FD1480 /* Roboto-Italic.ttf */; };
+		4BFB00DC2A53E5F200FD1480 /* Roboto-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00D02A53E5F200FD1480 /* Roboto-BoldItalic.ttf */; };
+		4BFB00DD2A53E5F200FD1480 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00D12A53E5F200FD1480 /* Roboto-Light.ttf */; };
+		4BFB00DE2A53E5F200FD1480 /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00D22A53E5F200FD1480 /* Roboto-Black.ttf */; };
+		4BFB00E12A53F11500FD1480 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00E02A53F11500FD1480 /* SignUpViewController.swift */; };
+		4BFB00E52A53F59E00FD1480 /* AuthAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00E42A53F59E00FD1480 /* AuthAPI.swift */; };
+		4BFB00EC2A53F76C00FD1480 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00EB2A53F76C00FD1480 /* Header.swift */; };
+		4BFB00EF2A53F84700FD1480 /* SwiftKeychainWrapper in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFB00EE2A53F84700FD1480 /* SwiftKeychainWrapper */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +43,23 @@
 		4BFB00A82A53C14600FD1480 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BFB00AB2A53C14600FD1480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BFB00AD2A53C14600FD1480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BFB00BE2A53E32E00FD1480 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		4BFB00C32A53E42700FD1480 /* DefaultTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultTextField.swift; sourceTree = "<group>"; };
+		4BFB00C72A53E5F200FD1480 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		4BFB00C82A53E5F200FD1480 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		4BFB00C92A53E5F200FD1480 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		4BFB00CA2A53E5F200FD1480 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		4BFB00CB2A53E5F200FD1480 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		4BFB00CC2A53E5F200FD1480 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		4BFB00CD2A53E5F200FD1480 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		4BFB00CE2A53E5F200FD1480 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		4BFB00CF2A53E5F200FD1480 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		4BFB00D02A53E5F200FD1480 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		4BFB00D12A53E5F200FD1480 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		4BFB00D22A53E5F200FD1480 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		4BFB00E02A53F11500FD1480 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		4BFB00E42A53F59E00FD1480 /* AuthAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthAPI.swift; sourceTree = "<group>"; };
+		4BFB00EB2A53F76C00FD1480 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +69,7 @@
 			files = (
 				4BFB00BB2A53D23300FD1480 /* SnapKit in Frameworks */,
 				4BFB00B52A53D21700FD1480 /* Moya in Frameworks */,
+				4BFB00EF2A53F84700FD1480 /* SwiftKeychainWrapper in Frameworks */,
 				4BFB00B82A53D22400FD1480 /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -60,6 +96,10 @@
 		4BFB009E2A53C14500FD1480 /* MB-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4BFB00BC2A53E11000FD1480 /* Service */,
+				4BFB00C52A53E5D200FD1480 /* Resource */,
+				4BFB00C12A53E37C00FD1480 /* Component */,
+				4BFB00BD2A53E12100FD1480 /* Scene */,
 				4BFB009F2A53C14500FD1480 /* AppDelegate.swift */,
 				4BFB00A12A53C14500FD1480 /* SceneDelegate.swift */,
 				4BFB00A32A53C14500FD1480 /* ViewController.swift */,
@@ -68,6 +108,99 @@
 				4BFB00AD2A53C14600FD1480 /* Info.plist */,
 			);
 			path = "MB-iOS";
+			sourceTree = "<group>";
+		};
+		4BFB00BC2A53E11000FD1480 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00EA2A53F73700FD1480 /* Header */,
+				4BFB00E22A53F58B00FD1480 /* Auth */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		4BFB00BD2A53E12100FD1480 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00DF2A53F10700FD1480 /* SignUp */,
+				4BFB00C02A53E36F00FD1480 /* Login */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		4BFB00C02A53E36F00FD1480 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00BE2A53E32E00FD1480 /* LoginViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		4BFB00C12A53E37C00FD1480 /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00C32A53E42700FD1480 /* DefaultTextField.swift */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		4BFB00C52A53E5D200FD1480 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00C62A53E5DB00FD1480 /* Font */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		4BFB00C62A53E5DB00FD1480 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00D22A53E5F200FD1480 /* Roboto-Black.ttf */,
+				4BFB00C92A53E5F200FD1480 /* Roboto-BlackItalic.ttf */,
+				4BFB00CE2A53E5F200FD1480 /* Roboto-Bold.ttf */,
+				4BFB00D02A53E5F200FD1480 /* Roboto-BoldItalic.ttf */,
+				4BFB00CF2A53E5F200FD1480 /* Roboto-Italic.ttf */,
+				4BFB00D12A53E5F200FD1480 /* Roboto-Light.ttf */,
+				4BFB00C72A53E5F200FD1480 /* Roboto-LightItalic.ttf */,
+				4BFB00C82A53E5F200FD1480 /* Roboto-Medium.ttf */,
+				4BFB00CA2A53E5F200FD1480 /* Roboto-MediumItalic.ttf */,
+				4BFB00CB2A53E5F200FD1480 /* Roboto-Regular.ttf */,
+				4BFB00CC2A53E5F200FD1480 /* Roboto-Thin.ttf */,
+				4BFB00CD2A53E5F200FD1480 /* Roboto-ThinItalic.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
+		4BFB00DF2A53F10700FD1480 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00E02A53F11500FD1480 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		4BFB00E22A53F58B00FD1480 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00E32A53F59300FD1480 /* API */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		4BFB00E32A53F59300FD1480 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00E42A53F59E00FD1480 /* AuthAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		4BFB00EA2A53F73700FD1480 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00EB2A53F76C00FD1480 /* Header.swift */,
+			);
+			path = Header;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -90,6 +223,7 @@
 				4BFB00B42A53D21700FD1480 /* Moya */,
 				4BFB00B72A53D22400FD1480 /* Then */,
 				4BFB00BA2A53D23300FD1480 /* SnapKit */,
+				4BFB00EE2A53F84700FD1480 /* SwiftKeychainWrapper */,
 			);
 			productName = "MB-iOS";
 			productReference = 4BFB009C2A53C14500FD1480 /* MB-iOS.app */;
@@ -123,6 +257,7 @@
 				4BFB00B32A53D21700FD1480 /* XCRemoteSwiftPackageReference "Moya" */,
 				4BFB00B62A53D22300FD1480 /* XCRemoteSwiftPackageReference "Then" */,
 				4BFB00B92A53D23300FD1480 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				4BFB00ED2A53F84700FD1480 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 			);
 			productRefGroup = 4BFB009D2A53C14500FD1480 /* Products */;
 			projectDirPath = "";
@@ -138,8 +273,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BFB00D82A53E5F200FD1480 /* Roboto-Thin.ttf in Resources */,
+				4BFB00D42A53E5F200FD1480 /* Roboto-Medium.ttf in Resources */,
+				4BFB00DA2A53E5F200FD1480 /* Roboto-Bold.ttf in Resources */,
+				4BFB00D72A53E5F200FD1480 /* Roboto-Regular.ttf in Resources */,
 				4BFB00AC2A53C14600FD1480 /* LaunchScreen.storyboard in Resources */,
+				4BFB00D52A53E5F200FD1480 /* Roboto-BlackItalic.ttf in Resources */,
+				4BFB00DC2A53E5F200FD1480 /* Roboto-BoldItalic.ttf in Resources */,
 				4BFB00A92A53C14600FD1480 /* Assets.xcassets in Resources */,
+				4BFB00D92A53E5F200FD1480 /* Roboto-ThinItalic.ttf in Resources */,
+				4BFB00DD2A53E5F200FD1480 /* Roboto-Light.ttf in Resources */,
+				4BFB00D62A53E5F200FD1480 /* Roboto-MediumItalic.ttf in Resources */,
+				4BFB00DE2A53E5F200FD1480 /* Roboto-Black.ttf in Resources */,
+				4BFB00DB2A53E5F200FD1480 /* Roboto-Italic.ttf in Resources */,
+				4BFB00D32A53E5F200FD1480 /* Roboto-LightItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,9 +297,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BFB00EC2A53F76C00FD1480 /* Header.swift in Sources */,
+				4BFB00E12A53F11500FD1480 /* SignUpViewController.swift in Sources */,
+				4BFB00BF2A53E32E00FD1480 /* LoginViewController.swift in Sources */,
 				4BFB00A42A53C14500FD1480 /* ViewController.swift in Sources */,
 				4BFB00A02A53C14500FD1480 /* AppDelegate.swift in Sources */,
+				4BFB00C42A53E42700FD1480 /* DefaultTextField.swift in Sources */,
 				4BFB00A22A53C14500FD1480 /* SceneDelegate.swift in Sources */,
+				4BFB00E52A53F59E00FD1480 /* AuthAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,6 +540,14 @@
 				minimumVersion = 5.0.0;
 			};
 		};
+		4BFB00ED2A53F84700FD1480 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jrendel/SwiftKeychainWrapper";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -405,6 +565,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4BFB00B92A53D23300FD1480 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		4BFB00EE2A53F84700FD1480 /* SwiftKeychainWrapper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BFB00ED2A53F84700FD1480 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
+			productName = SwiftKeychainWrapper;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
