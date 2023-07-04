@@ -5,11 +5,12 @@ enum CouponAPI {
     case getCoupons
     case saveCoupon(imageURL: String, price: Int, name: String, expiredAt: String)
     case deleteCoupon(couponID: Int)
+    case giveCouponToUser(couponID: Int, receiveUserID: String)
 }
 
 extension CouponAPI: TargetType {
     var baseURL: URL {
-        return URL(string: "http://192.168.1.135:8080/coupons")!
+        return URL(string: "http://3.38.34.230:8080/coupons")!
     }
     
     var path: String {
@@ -29,6 +30,8 @@ extension CouponAPI: TargetType {
             return .post
         case .deleteCoupon:
             return .delete
+        case .giveCouponToUser:
+            return .patch
         }
     }
     
@@ -43,6 +46,13 @@ extension CouponAPI: TargetType {
                     "expired_at": expiredAt
                 ],
                 encoding: JSONEncoding.default)
+        case .giveCouponToUser(let couponID, let receiveUserID):
+            return .requestParameters(
+                parameters: [
+                    "coupon-id": couponID,
+                    "account-id": receiveUserID
+                ],
+                encoding: URLEncoding.queryString)
         default:
             return .requestPlain
         }

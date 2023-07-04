@@ -1,16 +1,11 @@
-//
-//  CouponRegister.swift
-//  MB-iOS
-//
-//  Created by 조영준 on 2023/07/04.
-//
-
 import UIKit
 import SnapKit
 import Then
+import Moya
 
 class CouponRegisterViewController: UIViewController {
-    
+    private var selectImageURL: String = ""
+
     private let mainTitle = UILabel().then {
         $0.text = "쿠폰 등록"
         $0.textColor = .black
@@ -23,7 +18,7 @@ class CouponRegisterViewController: UIViewController {
     }
     private let couponNameTextField = DefaultTextField(title: "이름", placeholder: "티켓 이름을 입력해주세요.")
     private let priceTextField = DefaultTextField(title: "가격", placeholder: "티켓 가격을 입력해주세요.")
-    private let expirationDate = DefaultTextField(title: "유효기간", placeholder: "ex)2023-07-04")
+    private let expirationDateTextField = DefaultTextField(title: "유효기간", placeholder: "ex)2023-07-04")
     private let cancelButton = UIButton(type: .system).then {
         $0.setTitle("취소", for: .normal)
         $0.setTitleColor(UIColor.white, for: .normal)
@@ -35,8 +30,9 @@ class CouponRegisterViewController: UIViewController {
         $0.setTitle("등록", for: .normal)
         $0.setTitleColor(UIColor.white, for: .normal)
         $0.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 12)
-        $0.backgroundColor = UIColor(named: "blue-1")
+        $0.backgroundColor = UIColor(named: "blue-1")?.withAlphaComponent(0.2)
         $0.layer.cornerRadius = 12
+        $0.isEnabled = true
     }
     private let imageView = UIImageView().then {
         $0.backgroundColor = UIColor(named: "gray-1")
@@ -52,6 +48,7 @@ class CouponRegisterViewController: UIViewController {
         view.backgroundColor = .white
         navigationItem.hidesBackButton = true
         cancelButton.addTarget(self, action: #selector(clickCancelButton), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(registerCoupon), for: .touchUpInside)
     }
     
     override func viewDidLayoutSubviews() {
@@ -71,7 +68,7 @@ class CouponRegisterViewController: UIViewController {
             imageView,
             couponNameTextField,
             priceTextField,
-            expirationDate,
+            expirationDateTextField,
             cancelButton,
             registerButton,
             secondImageView
@@ -99,7 +96,7 @@ class CouponRegisterViewController: UIViewController {
             $0.top.equalTo(couponNameTextField.snp.bottom).offset(40)
             $0.left.right.equalToSuperview().inset(36)
         }
-        expirationDate.snp.makeConstraints {
+        expirationDateTextField.snp.makeConstraints {
             $0.top.equalTo(priceTextField.snp.bottom).offset(40)
             $0.left.right.equalToSuperview().inset(36)
         }
@@ -117,9 +114,65 @@ class CouponRegisterViewController: UIViewController {
             $0.center.equalTo(imageView)
         }
     }
-    
+
+    private func getImageURL(source image: UIImage) -> Void {
+        let provider = MoyaProvider<ImageAPI>(plugins: [MoyaLoggerPlugin()])
+        
+        provider.request(.getImageURL(data: image.jpegData(compressionQuality: 0.1) ?? Data())) { res in
+            switch res {
+            case .success(let result):
+                switch result.statusCode {
+                case 201:
+                    if let data = try? JSONDecoder().decode(CouponImageResponse.self, from: result.data) {
+                        DispatchQueue.main.async {
+                            self.selectImageURL = data.imageURL
+                            self.enabledRegisterButton(status: true)
+                        }
+                    } else {
+                        print("image to url decode fail")
+                    }
+                default:
+                    print(result.statusCode)
+                }
+            case .failure(let err):
+                print("\(err.localizedDescription)")
+            }
+        }
+    }
+
+    private func enabledRegisterButton(status: Bool) {
+        self.registerButton.backgroundColor = status ? UIColor(named: "blue-1") : UIColor(named: "blue-1")?.withAlphaComponent(0.2)
+        self.registerButton.isEnabled = status
+    }
+
     @objc func clickCancelButton() {
         self.navigationController?.popViewController(animated: true)
+    }
+
+    @objc func registerCoupon() {
+        guard let price = Int(self.priceTextField.text ?? ""),
+        let name = self.couponNameTextField.text,
+        let expiredAt = self.expirationDateTextField.text else {
+            return
+        }
+                  
+        let provider = MoyaProvider<CouponAPI>(plugins: [MoyaLoggerPlugin()])
+
+        provider.request(.saveCoupon(imageURL: self.selectImageURL, price: price, name: name, expiredAt: expiredAt)) { res in
+            switch res {
+            case .success(let result):
+                switch result.statusCode {
+                case 201:
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                default:
+                    print(result.statusCode)
+                }
+            case .failure(let err):
+                print("\(err.localizedDescription)")
+            }
+        }
     }
 }
 
@@ -131,10 +184,12 @@ extension CouponRegisterViewController: UIImagePickerControllerDelegate, UINavig
         present(imagePicker, animated: true)
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            imageView.image = pickedImage
-            secondImageView.isHidden = true
-        }
-        dismiss(animated: true, completion: nil)
+        guard let pickedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage else { return }
+        imageView.image = pickedImage
+        secondImageView.isHidden = true
+        dismiss(animated: true, completion: {
+            self.enabledRegisterButton(status: false)
+            self.getImageURL(source: pickedImage)
+        })
     }
 }

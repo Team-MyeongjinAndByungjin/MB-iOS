@@ -4,6 +4,9 @@ import Then
 import Moya
 
 class MainCouponViewController: UIViewController {
+
+    var couponList: [CouponModel] = []
+
     private let mainTitleLabel = UILabel().then {
         $0.text = "내 쿠폰"
         $0.textColor = .black
@@ -36,6 +39,10 @@ class MainCouponViewController: UIViewController {
         makeConstraints()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        getCoupons()
+    }
+
     private func addSubviews() {
         [
             mainTitleLabel,
@@ -65,7 +72,40 @@ class MainCouponViewController: UIViewController {
         couponTableView.separatorStyle = .none
         couponTableView.register(CouponTableViewCell.self, forCellReuseIdentifier: "couponCell")
     }
-    
+
+    private func getCoupons() {
+        let provider = MoyaProvider<CouponAPI>(plugins: [MoyaLoggerPlugin()])
+
+        provider.request(.getCoupons) { res in
+            switch res {
+            case .success(let result):
+                switch result.statusCode {
+                case 200:
+                    if let data = try? JSONDecoder().decode(CouponsResponse.self, from: result.data) {
+                        DispatchQueue.main.async {
+                            self.couponList = data.map {
+                                .init(
+                                    id: $0.id,
+                                    name: $0.name,
+                                    price: $0.price,
+                                    imageURL: $0.imageURL,
+                                    expiredAt: $0.expiredAt
+                                )
+                            }
+                            self.couponTableView.reloadData()
+                        }
+                    } else {
+                        print("get coupons json decode fail")
+                    }
+                default:
+                    print(result.statusCode)
+                }
+            case .failure(let err):
+                print("\(err.localizedDescription)")
+            }
+        }
+    }
+
     @objc func clickAddCoupon() {
         self.navigationController?.pushViewController(CouponRegisterViewController(), animated: true)
     }
@@ -73,17 +113,23 @@ class MainCouponViewController: UIViewController {
 
 extension MainCouponViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return couponList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "couponCell") as? CouponTableViewCell else { return UITableViewCell() }
-
+        cell.cellSetter(
+            id: couponList[indexPath.row].id,
+            price: couponList[indexPath.row].price,
+            couponName: couponList[indexPath.row].name,
+            couponDate: couponList[indexPath.row].expiredAt,
+            imageURL: couponList[indexPath.row].imageURL
+        )
         cell.selectionStyle = .none
         return cell
     }
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 160
+        return 140
     }
 }

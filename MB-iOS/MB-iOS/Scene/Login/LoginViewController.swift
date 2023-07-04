@@ -100,7 +100,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     @objc func clickSingUpButton(sender: UIButton) {
         let signUpView = SignUpViewController()
-        self.navigationController?.pushViewController(signUpView, animated: true)
+        self.navigationController?.pushViewController(signUpView, animated: false)
     }
 
     @objc func clickLoginButton(sender: UIButton) {
@@ -115,9 +115,11 @@ extension LoginViewController {
                 switch result.statusCode {
                 case 201:
                     if let data = try? JSONDecoder().decode(AuthResponse.self, from: result.data) {
-                        Token.accessToken = data.token
-                        let mainView = MainCouponViewController()
-                        self.navigationController?.pushViewController(mainView, animated: true)
+                        DispatchQueue.main.async {
+                            Token.accessToken = data.token
+                            let mainView = MainCouponViewController()
+                            self.navigationController?.pushViewController(mainView, animated: true)
+                        }
                     } else {
                         print("auth json decode fail")
                     }

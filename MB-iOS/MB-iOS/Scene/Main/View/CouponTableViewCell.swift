@@ -1,8 +1,12 @@
 import UIKit
 import SnapKit
 import Then
+import Kingfisher
 
 class CouponTableViewCell: UITableViewCell {
+    private var id: Int = 0
+    private var price: Int = 0
+
     private let couponFrontView = UIView().then {
         $0.roundCorners(cornerRadius: 12, maskedCorners: [.layerMaxXMinYCorner, .layerMaxXMaxYCorner])
         $0.backgroundColor = .white
@@ -21,9 +25,11 @@ class CouponTableViewCell: UITableViewCell {
     }
 
     private let couponImageView = UIImageView().then {
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = UIColor(named: "gray-2")?.cgColor
         $0.contentMode = .scaleAspectFill
         $0.layer.cornerRadius = 33
-        $0.backgroundColor = .blue
+        $0.clipsToBounds = true
     }
 
     private let couponIconImageView = UIImageView().then {
@@ -32,16 +38,28 @@ class CouponTableViewCell: UITableViewCell {
     }
 
     private let couponNameTitleLabel = UILabel().then {
-        $0.text = "무언가"
         $0.font = UIFont(name: "Roboto-Bold", size: 16)
         $0.textColor = .black
     }
 
     private let couponDateLabel = UILabel().then {
-        $0.text = "2023-07-04\n~2024-07-04"
         $0.font = UIFont(name: "Roboto-Medium", size: 10)
         $0.textColor = .white
         $0.numberOfLines = 2
+    }
+
+    public func cellSetter(
+        id: Int,
+        price: Int,
+        couponName: String,
+        couponDate: String,
+        imageURL: String
+    ) {
+        self.id = id
+        self.price = price
+        self.couponImageView.kf.setImage(with: URL(string: imageURL))
+        self.couponNameTitleLabel.text = couponName
+        self.couponDateLabel.text = couponDate
     }
 
     override func awakeFromNib() {
