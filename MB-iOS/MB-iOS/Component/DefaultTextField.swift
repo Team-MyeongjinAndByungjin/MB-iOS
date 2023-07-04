@@ -29,6 +29,7 @@ class DefaultTextField: UITextField {
         self.isSecureTextEntry = isSecure
         self.font = UIFont(name: "Roboto-Regular", size: 15)
         self.autocapitalizationType = .none
+        self.autocorrectionType = .no
         self.backgroundColor = UIColor(named: "gray-1")
         self.layer.cornerRadius = 12
         let spacerView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 0))

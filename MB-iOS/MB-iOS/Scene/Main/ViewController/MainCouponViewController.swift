@@ -28,6 +28,7 @@ class MainCouponViewController: UIViewController {
         view.backgroundColor = UIColor(named: "gray-1")
         navigationItem.hidesBackButton = true
         settingTableView()
+        addCouponButton.addTarget(self, action: #selector(clickAddCoupon), for: .touchUpInside)
     }
 
     override func viewDidLayoutSubviews() {
@@ -63,6 +64,10 @@ class MainCouponViewController: UIViewController {
         couponTableView.dataSource = self
         couponTableView.separatorStyle = .none
         couponTableView.register(CouponTableViewCell.self, forCellReuseIdentifier: "couponCell")
+    }
+    
+    @objc func clickAddCoupon() {
+        self.navigationController?.pushViewController(CouponRegisterViewController(), animated: true)
     }
 }
 
