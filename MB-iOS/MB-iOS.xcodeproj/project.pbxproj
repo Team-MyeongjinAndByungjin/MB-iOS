@@ -36,6 +36,9 @@
 		4BFB00F22A5400DE00FD1480 /* AuthResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00F12A5400DE00FD1480 /* AuthResponse.swift */; };
 		4BFB00F52A5409EB00FD1480 /* MoyaLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00F42A5409EB00FD1480 /* MoyaLoggerPlugin.swift */; };
 		4BFB00F82A540FE600FD1480 /* MainCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00F72A540FE600FD1480 /* MainCouponViewController.swift */; };
+		4BFB00FC2A54264800FD1480 /* CouponTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00FB2A54264800FD1480 /* CouponTableViewCell.swift */; };
+		4BFB00FF2A543D6700FD1480 /* UIView+roundCorners.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00FE2A543D6700FD1480 /* UIView+roundCorners.swift */; };
+		4BFB01022A54471700FD1480 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFB01012A54471700FD1480 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +69,8 @@
 		4BFB00F12A5400DE00FD1480 /* AuthResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthResponse.swift; sourceTree = "<group>"; };
 		4BFB00F42A5409EB00FD1480 /* MoyaLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggerPlugin.swift; sourceTree = "<group>"; };
 		4BFB00F72A540FE600FD1480 /* MainCouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCouponViewController.swift; sourceTree = "<group>"; };
+		4BFB00FB2A54264800FD1480 /* CouponTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponTableViewCell.swift; sourceTree = "<group>"; };
+		4BFB00FE2A543D6700FD1480 /* UIView+roundCorners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+roundCorners.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +82,7 @@
 				4BFB00B52A53D21700FD1480 /* Moya in Frameworks */,
 				4BFB00EF2A53F84700FD1480 /* SwiftKeychainWrapper in Frameworks */,
 				4BFB00B82A53D22400FD1480 /* Then in Frameworks */,
+				4BFB01022A54471700FD1480 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,6 +108,7 @@
 		4BFB009E2A53C14500FD1480 /* MB-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4BFB00FD2A543D4D00FD1480 /* Extension */,
 				4BFB00BC2A53E11000FD1480 /* Service */,
 				4BFB00C52A53E5D200FD1480 /* Resource */,
 				4BFB00C12A53E37C00FD1480 /* Component */,
@@ -231,9 +238,34 @@
 		4BFB00F62A540FB900FD1480 /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				4BFB00F72A540FE600FD1480 /* MainCouponViewController.swift */,
+				4BFB00FA2A54261D00FD1480 /* ViewController */,
+				4BFB00F92A54261900FD1480 /* View */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		4BFB00F92A54261900FD1480 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00FB2A54264800FD1480 /* CouponTableViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		4BFB00FA2A54261D00FD1480 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00F72A540FE600FD1480 /* MainCouponViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4BFB00FD2A543D4D00FD1480 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB00FE2A543D6700FD1480 /* UIView+roundCorners.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +289,7 @@
 				4BFB00B72A53D22400FD1480 /* Then */,
 				4BFB00BA2A53D23300FD1480 /* SnapKit */,
 				4BFB00EE2A53F84700FD1480 /* SwiftKeychainWrapper */,
+				4BFB01012A54471700FD1480 /* Kingfisher */,
 			);
 			productName = "MB-iOS";
 			productReference = 4BFB009C2A53C14500FD1480 /* MB-iOS.app */;
@@ -291,6 +324,7 @@
 				4BFB00B62A53D22300FD1480 /* XCRemoteSwiftPackageReference "Then" */,
 				4BFB00B92A53D23300FD1480 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4BFB00ED2A53F84700FD1480 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
+				4BFB01002A54471700FD1480 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 4BFB009D2A53C14500FD1480 /* Products */;
 			projectDirPath = "";
@@ -333,6 +367,7 @@
 				4BFB00EC2A53F76C00FD1480 /* Header.swift in Sources */,
 				4BFB00E12A53F11500FD1480 /* SignUpViewController.swift in Sources */,
 				4BFB00F52A5409EB00FD1480 /* MoyaLoggerPlugin.swift in Sources */,
+				4BFB00FC2A54264800FD1480 /* CouponTableViewCell.swift in Sources */,
 				4BFB00F82A540FE600FD1480 /* MainCouponViewController.swift in Sources */,
 				4BFB00BF2A53E32E00FD1480 /* LoginViewController.swift in Sources */,
 				4BFB00A42A53C14500FD1480 /* ViewController.swift in Sources */,
@@ -341,6 +376,7 @@
 				4BFB00C42A53E42700FD1480 /* DefaultTextField.swift in Sources */,
 				4BFB00A22A53C14500FD1480 /* SceneDelegate.swift in Sources */,
 				4BFB00E52A53F59E00FD1480 /* AuthAPI.swift in Sources */,
+				4BFB00FF2A543D6700FD1480 /* UIView+roundCorners.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,6 +620,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		4BFB01002A54471700FD1480 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -606,6 +650,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4BFB00ED2A53F84700FD1480 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */;
 			productName = SwiftKeychainWrapper;
+		};
+		4BFB01012A54471700FD1480 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BFB01002A54471700FD1480 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

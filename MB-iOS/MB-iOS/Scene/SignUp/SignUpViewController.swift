@@ -98,6 +98,8 @@ extension SignUpViewController {
                 case 201:
                     if let data = try? JSONDecoder().decode(AuthResponse.self, from: result.data) {
                         Token.accessToken = data.token
+                        let mainView = MainCouponViewController()
+                        self.navigationController?.pushViewController(mainView, animated: true)
                     } else {
                         print("signUp auth json decode fail")
                     }
