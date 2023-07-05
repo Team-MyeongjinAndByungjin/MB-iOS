@@ -87,9 +87,10 @@ class MainCouponViewController: UIViewController {
                                 .init(
                                     id: $0.id,
                                     name: $0.name,
-                                    price: $0.price,
+                                    from: $0.from,
                                     imageURL: $0.imageURL,
-                                    expiredAt: $0.expiredAt
+                                    expiredAt: $0.expiredAt,
+                                    createdAt: $0.createdAt
                                 )
                             }
                             self.couponTableView.reloadData()
@@ -120,9 +121,9 @@ extension MainCouponViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "couponCell") as? CouponTableViewCell else { return UITableViewCell() }
         cell.cellSetter(
             id: couponList[indexPath.row].id,
-            price: couponList[indexPath.row].price,
+            from: couponList[indexPath.row].from,
             couponName: couponList[indexPath.row].name,
-            couponDate: couponList[indexPath.row].expiredAt,
+            couponDate: "\(couponList[indexPath.row].createdAt) ~ \(couponList[indexPath.row].expiredAt)",
             imageURL: couponList[indexPath.row].imageURL
         )
         cell.selectionStyle = .none
@@ -131,5 +132,24 @@ extension MainCouponViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 140
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let detailModal = CouponInteractionViewController(
+            name: couponList[indexPath.row].name,
+            date: "\(couponList[indexPath.row].createdAt) ~ \(couponList[indexPath.row].expiredAt)",
+            imageURL: couponList[indexPath.row].imageURL,
+            useAction: {
+                let couponUseView = UseCouponViewController(imageURL: self.couponList[indexPath.row].imageURL)
+                self.present(couponUseView, animated: false)
+            },
+            giftAction: {
+                
+            },
+            deleteAction: {
+                
+            }
+        )
+        self.present(detailModal, animated: true)
     }
 }

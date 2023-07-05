@@ -45,6 +45,7 @@
 		4BFB01102A54747900FD1480 /* UseCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB010F2A54747900FD1480 /* UseCouponViewController.swift */; };
 		4BFB01142A54799600FD1480 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB01132A54799600FD1480 /* ImageAPI.swift */; };
 		4BFB01172A547BED00FD1480 /* CouponImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB01162A547BED00FD1480 /* CouponImageResponse.swift */; };
+		4BFB011C2A54E5FD00FD1480 /* CouponInteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB011B2A54E5FD00FD1480 /* CouponInteractionViewController.swift */; };
 		880A42BF2A544B880073DDDC /* CouponRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A42BE2A544B880073DDDC /* CouponRegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		4BFB010F2A54747900FD1480 /* UseCouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UseCouponViewController.swift; sourceTree = "<group>"; };
 		4BFB01132A54799600FD1480 /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		4BFB01162A547BED00FD1480 /* CouponImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponImageResponse.swift; sourceTree = "<group>"; };
+		4BFB011B2A54E5FD00FD1480 /* CouponInteractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInteractionViewController.swift; sourceTree = "<group>"; };
 		880A42BE2A544B880073DDDC /* CouponRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponRegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -152,6 +154,7 @@
 		4BFB00BD2A53E12100FD1480 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				4BFB01182A54E56400FD1480 /* CouponInteraction */,
 				4BFB010D2A54743A00FD1480 /* UseCoupon */,
 				880A42BD2A544B6C0073DDDC /* Coupon */,
 				4BFB00F62A540FB900FD1480 /* Main */,
@@ -361,6 +364,22 @@
 			path = Response;
 			sourceTree = "<group>";
 		};
+		4BFB01182A54E56400FD1480 /* CouponInteraction */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB01192A54E5CC00FD1480 /* ViewController */,
+			);
+			path = CouponInteraction;
+			sourceTree = "<group>";
+		};
+		4BFB01192A54E5CC00FD1480 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB011B2A54E5FD00FD1480 /* CouponInteractionViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		880A42BD2A544B6C0073DDDC /* Coupon */ = {
 			isa = PBXGroup;
 			children = (
@@ -480,6 +499,7 @@
 				4BFB00F22A5400DE00FD1480 /* AuthResponse.swift in Sources */,
 				4BFB00A02A53C14500FD1480 /* AppDelegate.swift in Sources */,
 				4BFB00C42A53E42700FD1480 /* DefaultTextField.swift in Sources */,
+				4BFB011C2A54E5FD00FD1480 /* CouponInteractionViewController.swift in Sources */,
 				4BFB00A22A53C14500FD1480 /* SceneDelegate.swift in Sources */,
 				4BFB00E52A53F59E00FD1480 /* AuthAPI.swift in Sources */,
 				4BFB00FF2A543D6700FD1480 /* UIView+roundCorners.swift in Sources */,

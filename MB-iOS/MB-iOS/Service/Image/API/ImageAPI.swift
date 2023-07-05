@@ -21,11 +21,20 @@ extension ImageAPI: TargetType {
     var task: Moya.Task {
         switch self {
         case .getImageURL(let data):
-            return .requestData(data)
+            var multiData: [MultipartFormData] = []
+            multiData.append(
+                .init(
+                    provider: .data(data),
+                    name: "image",
+                    fileName: "image.jpg",
+                    mimeType: "image/jpg"
+                )
+            )
+            return .uploadMultipart(multiData)
         }
     }
     
     var headers: [String : String]? {
-        return ["Content-Type" : "multipart/form-data"]
+        return Header.tokenIsEmpty.header()
     }
 }

@@ -5,7 +5,7 @@ import Kingfisher
 
 class CouponTableViewCell: UITableViewCell {
     private var id: Int = 0
-    private var price: Int = 0
+    private var from: String = ""
 
     private let couponFrontView = UIView().then {
         $0.roundCorners(cornerRadius: 12, maskedCorners: [.layerMaxXMinYCorner, .layerMaxXMaxYCorner])
@@ -50,13 +50,13 @@ class CouponTableViewCell: UITableViewCell {
 
     public func cellSetter(
         id: Int,
-        price: Int,
+        from: String,
         couponName: String,
         couponDate: String,
         imageURL: String
     ) {
         self.id = id
-        self.price = price
+        self.from = from
         self.couponImageView.kf.setImage(with: URL(string: imageURL))
         self.couponNameTitleLabel.text = couponName
         self.couponDateLabel.text = couponDate

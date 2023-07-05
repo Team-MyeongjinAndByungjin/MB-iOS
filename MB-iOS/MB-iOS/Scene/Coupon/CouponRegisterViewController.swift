@@ -32,7 +32,7 @@ class CouponRegisterViewController: UIViewController {
         $0.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 12)
         $0.backgroundColor = UIColor(named: "blue-1")?.withAlphaComponent(0.2)
         $0.layer.cornerRadius = 12
-        $0.isEnabled = true
+        $0.isEnabled = false
     }
     private let imageView = UIImageView().then {
         $0.backgroundColor = UIColor(named: "gray-1")
