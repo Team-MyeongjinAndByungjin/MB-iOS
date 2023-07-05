@@ -6,6 +6,13 @@ import Moya
 class CouponRegisterViewController: UIViewController {
     private var selectImageURL: String = ""
 
+    private let datePicker = UIDatePicker().then {
+        $0.minimumDate = Date()
+        $0.locale = Locale(identifier: "ko_KR")
+        $0.datePickerMode = .date
+        $0.preferredDatePickerStyle = .compact
+    }
+
     private let mainTitle = UILabel().then {
         $0.text = "쿠폰 등록"
         $0.textColor = .black
@@ -18,7 +25,12 @@ class CouponRegisterViewController: UIViewController {
     }
     private let couponNameTextField = DefaultTextField(title: "이름", placeholder: "쿠폰 이름을 입력해주세요.")
     private let fromTextField = DefaultTextField(title: "준사람", placeholder: "쿠폰을 준사람을 입력해주세요.")
-    private let expirationDateTextField = DefaultTextField(title: "유효기간", placeholder: "ex)2023-07-04")
+    private let dateSelectTitleLabel = UILabel().then {
+        $0.text = "유효기간"
+        $0.textColor = .black
+        $0.font = UIFont(name: "Roboto-Bold", size: 12)
+    }
+//    private let expirationDateTextField = DefaultTextField(title: "유효기간", placeholder: "ex)2023-07-04")
     private let cancelButton = UIButton(type: .system).then {
         $0.setTitle("취소", for: .normal)
         $0.setTitleColor(UIColor.white, for: .normal)
@@ -69,7 +81,8 @@ class CouponRegisterViewController: UIViewController {
             imageView,
             couponNameTextField,
             fromTextField,
-            expirationDateTextField,
+            dateSelectTitleLabel,
+            datePicker,
             cancelButton,
             registerButton,
             secondImageView
@@ -97,10 +110,19 @@ class CouponRegisterViewController: UIViewController {
             $0.top.equalTo(couponNameTextField.snp.bottom).offset(40)
             $0.left.right.equalToSuperview().inset(36)
         }
-        expirationDateTextField.snp.makeConstraints {
-            $0.top.equalTo(fromTextField.snp.bottom).offset(40)
-            $0.left.right.equalToSuperview().inset(36)
+        dateSelectTitleLabel.snp.makeConstraints {
+            $0.left.equalTo(datePicker)
+            $0.bottom.equalTo(datePicker.snp.top).offset(-4)
         }
+        datePicker.snp.makeConstraints {
+            $0.top.equalTo(fromTextField.snp.bottom).offset(40)
+            $0.left.equalToSuperview().inset(38)
+            $0.height.equalTo(44)
+        }
+//        expirationDateTextField.snp.makeConstraints {
+//            $0.top.equalTo(fromTextField.snp.bottom).offset(40)
+//            $0.left.right.equalToSuperview().inset(36)
+//        }
         cancelButton.snp.makeConstraints {
             $0.bottom.equalTo(registerButton.snp.top).offset(-10)
             $0.left.right.equalToSuperview().inset(36)
@@ -151,12 +173,14 @@ class CouponRegisterViewController: UIViewController {
     }
 
     @objc func registerCoupon() {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+
+        let expiredAt = dateFormatter.string(from: datePicker.date)
         guard let from = self.fromTextField.text,
-        let name = self.couponNameTextField.text,
-        let expiredAt = self.expirationDateTextField.text else {
-            return
-        }
-                  
+        let name = self.couponNameTextField.text
+        else { return }
+
         let provider = MoyaProvider<CouponAPI>(plugins: [MoyaLoggerPlugin()])
 
         provider.request(.saveCoupon(imageURL: self.selectImageURL, from: from, name: name, expiredAt: expiredAt)) { res in
