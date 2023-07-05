@@ -185,6 +185,11 @@ extension MainCouponViewController: UITableViewDelegate, UITableViewDataSource {
                 let giftModal = GiftCouponViewController(id: self.couponList[indexPath.row].id, completion: {
                     self.couponList.remove(at: indexPath.row)
                     self.couponTableView.reloadData()
+                    let sendModal = BaseModalViewController(
+                        title: "선물을 보냈습니다!",
+                        content: "친구에게 알림이 발송됩니다."
+                    )
+                    self.present(sendModal, animated: false)
                 })
                 self.present(giftModal, animated: false)
             },

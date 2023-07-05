@@ -17,9 +17,14 @@ class LoginViewController: UIViewController {
         $0.textColor = .black
         $0.font = UIFont(name: "Roboto-Bold", size: 24)
     }
+    private let signUpMarkLabel = UILabel().then {
+        $0.text = "아직 회원이 아니신가요?"
+        $0.textColor = UIColor(named: "gray-2")
+        $0.font = UIFont(name: "Roboto-Regular", size: 12)
+    }
 
-    private let lineView = UIView().then {
-        $0.backgroundColor = UIColor(named: "gray-5")
+    private let logoImageView = UIImageView().then {
+        $0.image = UIImage(named: "logo_small")
     }
 
     private let idTextField = DefaultTextField(title: "아이디", placeholder: "아이디를 입력해주세요.")
@@ -32,11 +37,9 @@ class LoginViewController: UIViewController {
         $0.layer.cornerRadius = 12
     }
     private let signInButton = UIButton(type: .system).then {
-        $0.backgroundColor = UIColor(named: "gray-5")
-        $0.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 12)
-        $0.setTitleColor(UIColor.white, for: .normal)
+        $0.titleLabel?.font = UIFont(name: "Roboto-Bold", size: 14)
+        $0.setTitleColor(UIColor(named: "blue-1"), for: .normal)
         $0.setTitle("회원가입", for: .normal)
-        $0.layer.cornerRadius = 12
     }
 
     override func viewDidLoad() {
@@ -55,9 +58,10 @@ class LoginViewController: UIViewController {
     private func addsubViews() {
         [
             mainTitle,
-            lineView,
+            logoImageView,
             idTextField,
             passwordTextField,
+            signUpMarkLabel,
             loginButton,
             signInButton
         ].forEach({ view.addSubview($0) })
@@ -68,30 +72,33 @@ class LoginViewController: UIViewController {
             $0.left.equalToSuperview().inset(36)
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(100)
         }
-        lineView.snp.makeConstraints {
-            $0.left.right.equalToSuperview().inset(36)
-            $0.height.equalTo(1)
-        }
-        lineView.snp.makeConstraints {
-            $0.top.equalTo(mainTitle.snp.bottom).offset(8)
-            $0.left.right.equalToSuperview().inset(36)
+        logoImageView.snp.makeConstraints {
+            $0.width.equalTo(30)
+            $0.height.equalTo(23)
+            $0.left.equalTo(mainTitle.snp.right).offset(3)
+            $0.centerY.equalTo(mainTitle)
         }
         idTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.left.right.equalToSuperview().inset(36)
-            $0.top.equalTo(lineView.snp.bottom).offset(40)
+            $0.top.equalTo(mainTitle.snp.bottom).offset(50)
         }
         passwordTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.left.right.equalToSuperview().inset(36)
             $0.top.equalTo(idTextField.snp.bottom).offset(40)
         }
-        loginButton.snp.makeConstraints {
-            $0.height.equalTo(40)
-            $0.left.right.equalToSuperview().inset(24)
-            $0.bottom.equalTo(signInButton.snp.top).offset(-10)
+        signUpMarkLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview().offset(-30)
+            $0.bottom.equalTo(loginButton.snp.top).offset(-20)
         }
         signInButton.snp.makeConstraints {
+            $0.width.equalTo(52)
+            $0.height.equalTo(22)
+            $0.centerY.equalTo(signUpMarkLabel)
+            $0.left.equalTo(signUpMarkLabel.snp.right).offset(5)
+        }
+        loginButton.snp.makeConstraints {
             $0.height.equalTo(40)
             $0.left.right.equalToSuperview().inset(24)
             $0.bottom.equalTo(view.safeAreaLayoutGuide).offset(-10)
@@ -102,7 +109,7 @@ class LoginViewController: UIViewController {
 extension LoginViewController {
     @objc func clickSingUpButton(sender: UIButton) {
         let signUpView = SignUpViewController()
-        self.navigationController?.pushViewController(signUpView, animated: false)
+        self.navigationController?.pushViewController(signUpView, animated: true)
     }
 
     @objc func clickLoginButton(sender: UIButton) {
@@ -128,7 +135,11 @@ extension LoginViewController {
                         print("auth json decode fail")
                     }
                 default:
-                    print(result.statusCode)
+                    let errorModal = BaseModalViewController(
+                        title: "오류",
+                        content: "code: \(result.statusCode)"
+                    )
+                    self.present(errorModal, animated: false)
                 }
             case .failure(let err):
                 print("\(err.localizedDescription)")

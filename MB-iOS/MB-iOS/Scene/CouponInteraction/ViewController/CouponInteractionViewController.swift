@@ -124,7 +124,7 @@ class CouponInteractionViewController: UIViewController {
         }
         nameTitleLable.snp.makeConstraints {
             $0.left.top.equalToSuperview().inset(23)
-            $0.right.equalTo(imageBackgroundView.snp.right).offset(-5)
+            $0.right.equalTo(imageBackgroundView.snp.left).offset(-5)
         }
         dateLable.snp.makeConstraints {
             $0.top.equalTo(nameTitleLable.snp.bottom).offset(5)

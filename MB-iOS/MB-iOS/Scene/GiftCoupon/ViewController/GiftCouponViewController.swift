@@ -125,7 +125,6 @@ class GiftCouponViewController: UIViewController {
 
     @objc func clicksendButton(sender: UIButton) {
         guard let userID = self.giftUserIdTextField.text else { return }
-        self.dismiss(animated: false)
         let provider = MoyaProvider<CouponAPI>(plugins: [MoyaLoggerPlugin()])
 
         provider.request(.giveCouponToUser(couponID: self.id, receiveUserID: userID)) { res in
@@ -134,6 +133,13 @@ class GiftCouponViewController: UIViewController {
                 switch result.statusCode {
                 case 204:
                     self.completion()
+                    self.dismiss(animated: false)
+                case 404:
+                    let notFoundModal = BaseModalViewController(
+                        title: "친구를 찾을 수 없습니다!",
+                        content: "아이디를 다시한번 확인해주세요."
+                    )
+                    self.present(notFoundModal, animated: false)
                 default:
                     print(result.statusCode)
                 }

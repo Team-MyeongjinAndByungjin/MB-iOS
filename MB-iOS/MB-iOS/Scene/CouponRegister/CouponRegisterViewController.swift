@@ -192,7 +192,11 @@ class CouponRegisterViewController: UIViewController {
                         self.navigationController?.popViewController(animated: true)
                     }
                 default:
-                    print(result.statusCode)
+                    let errorModal = BaseModalViewController(
+                        title: "오류",
+                        content: "code: \(result.statusCode)"
+                    )
+                    self.present(errorModal, animated: false)
                 }
             case .failure(let err):
                 print("\(err.localizedDescription)")

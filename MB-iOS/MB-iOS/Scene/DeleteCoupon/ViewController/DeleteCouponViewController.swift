@@ -55,6 +55,7 @@ class DeleteCouponViewController: UIViewController {
         self.id = id
         self.completion = completion
         self.modalPresentationStyle = .overFullScreen
+        
     }
 
     required init?(coder: NSCoder) {

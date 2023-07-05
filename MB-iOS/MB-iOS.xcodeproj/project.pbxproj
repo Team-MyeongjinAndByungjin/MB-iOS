@@ -51,6 +51,7 @@
 		4BFB012A2A553BE800FD1480 /* DeleteCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB01292A553BE800FD1480 /* DeleteCouponViewController.swift */; };
 		4BFB012E2A5541B500FD1480 /* GiftCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB012D2A5541B500FD1480 /* GiftCouponViewController.swift */; };
 		4BFB01302A5559B200FD1480 /* UIViewController+hideKeyboardWhenTappedAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB012F2A5559B200FD1480 /* UIViewController+hideKeyboardWhenTappedAround.swift */; };
+		4BFB01342A5583AD00FD1480 /* BaseModalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB01332A5583AD00FD1480 /* BaseModalViewController.swift */; };
 		880A42BF2A544B880073DDDC /* CouponRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A42BE2A544B880073DDDC /* CouponRegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		4BFB01292A553BE800FD1480 /* DeleteCouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCouponViewController.swift; sourceTree = "<group>"; };
 		4BFB012D2A5541B500FD1480 /* GiftCouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCouponViewController.swift; sourceTree = "<group>"; };
 		4BFB012F2A5559B200FD1480 /* UIViewController+hideKeyboardWhenTappedAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+hideKeyboardWhenTappedAround.swift"; sourceTree = "<group>"; };
+		4BFB01332A5583AD00FD1480 /* BaseModalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseModalViewController.swift; sourceTree = "<group>"; };
 		880A42BE2A544B880073DDDC /* CouponRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponRegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +168,7 @@
 		4BFB00BD2A53E12100FD1480 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				4BFB01312A55838300FD1480 /* BaseModal */,
 				4BFB012B2A55418D00FD1480 /* GiftCoupon */,
 				4BFB01272A553BC600FD1480 /* DeleteCoupon */,
 				4BFB01182A54E56400FD1480 /* CouponInteraction */,
@@ -427,6 +430,22 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		4BFB01312A55838300FD1480 /* BaseModal */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB01322A55839100FD1480 /* ViewController */,
+			);
+			path = BaseModal;
+			sourceTree = "<group>";
+		};
+		4BFB01322A55839100FD1480 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB01332A5583AD00FD1480 /* BaseModalViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		880A42BD2A544B6C0073DDDC /* CouponRegister */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +569,7 @@
 				4BFB00A02A53C14500FD1480 /* AppDelegate.swift in Sources */,
 				4BFB01302A5559B200FD1480 /* UIViewController+hideKeyboardWhenTappedAround.swift in Sources */,
 				4BFB00C42A53E42700FD1480 /* DefaultTextField.swift in Sources */,
+				4BFB01342A5583AD00FD1480 /* BaseModalViewController.swift in Sources */,
 				4BFB011C2A54E5FD00FD1480 /* CouponInteractionViewController.swift in Sources */,
 				4BFB00A22A53C14500FD1480 /* SceneDelegate.swift in Sources */,
 				4BFB00E52A53F59E00FD1480 /* AuthAPI.swift in Sources */,

@@ -18,8 +18,8 @@ class SignUpViewController: UIViewController {
         $0.font = UIFont(name: "Roboto-Bold", size: 24)
     }
 
-    private let lineView = UIView().then {
-        $0.backgroundColor = UIColor(named: "gray-5")
+    private let logoImageView = UIImageView().then {
+        $0.image = UIImage(named: "logo_small")
     }
 
     private let idTextField = DefaultTextField(title: "아이디", placeholder: "아이디를 입력해주세요.")
@@ -47,7 +47,7 @@ class SignUpViewController: UIViewController {
     private func addsubViews() {
         [
             mainTitle,
-            lineView,
+            logoImageView,
             idTextField,
             passwordTextField,
             signUpButton
@@ -59,18 +59,16 @@ class SignUpViewController: UIViewController {
             $0.left.equalToSuperview().inset(36)
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(100)
         }
-        lineView.snp.makeConstraints {
-            $0.left.right.equalToSuperview().inset(36)
-            $0.height.equalTo(1)
-        }
-        lineView.snp.makeConstraints {
-            $0.top.equalTo(mainTitle.snp.bottom).offset(8)
-            $0.left.right.equalToSuperview().inset(36)
+        logoImageView.snp.makeConstraints {
+            $0.width.equalTo(30)
+            $0.height.equalTo(23)
+            $0.left.equalTo(mainTitle.snp.right).offset(3)
+            $0.centerY.equalTo(mainTitle)
         }
         idTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.left.right.equalToSuperview().inset(36)
-            $0.top.equalTo(lineView.snp.bottom).offset(40)
+            $0.top.equalTo(mainTitle.snp.bottom).offset(50)
         }
         passwordTextField.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -99,11 +97,20 @@ extension SignUpViewController {
                 case 201:
                     if let data = try? JSONDecoder().decode(AuthResponse.self, from: result.data) {
                         Token.accessToken = data.token
+                        let succedModal = BaseModalViewController(
+                            title: "회원가입이 완료되었습니다!",
+                            content: "같은 계정으로 로그인을 시도해주세요."
+                        )
+                        self.present(succedModal, animated: false)
                     } else {
                         print("signUp auth json decode fail")
                     }
                 default:
-                    print(result.statusCode)
+                    let errorModal = BaseModalViewController(
+                        title: "오류",
+                        content: "code: \(result.statusCode)"
+                    )
+                    self.present(errorModal, animated: false)
                 }
             case .failure(let err):
                 print("\(err.localizedDescription)")
