@@ -9,6 +9,7 @@ import UIKit
 import SnapKit
 import Then
 import Moya
+import SwiftKeychainWrapper
 
 class LoginViewController: UIViewController {
     private let mainTitle = UILabel().then {
@@ -43,6 +44,7 @@ class LoginViewController: UIViewController {
         view.backgroundColor = .white
         loginButton.addTarget(self, action: #selector(clickLoginButton), for: .touchUpInside)
         signInButton.addTarget(self, action: #selector(clickSingUpButton), for: .touchUpInside)
+        hideKeyboardWhenTappedAround()
     }
 
     override func viewDidLayoutSubviews() {
@@ -106,10 +108,12 @@ extension LoginViewController {
     @objc func clickLoginButton(sender: UIButton) {
         let provider = MoyaProvider<AuthAPI>(plugins: [MoyaLoggerPlugin()])
         guard let idText = self.idTextField.text,
-              let passwordText = self.passwordTextField.text
+              let passwordText = self.passwordTextField.text,
+              let myFcmToken = KeychainWrapper.standard.string(forKey: "firbase_fcmToken")
         else { return }
+        
 
-        provider.request(.login(id: idText, password: passwordText)) { res in
+        provider.request(.login(id: idText, password: passwordText, fcmToken: myFcmToken)) { res in
             switch res {
             case .success(let result):
                 switch result.statusCode {

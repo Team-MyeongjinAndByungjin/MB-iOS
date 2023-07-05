@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4BFB00A02A53C14500FD1480 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB009F2A53C14500FD1480 /* AppDelegate.swift */; };
 		4BFB00A22A53C14500FD1480 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00A12A53C14500FD1480 /* SceneDelegate.swift */; };
-		4BFB00A42A53C14500FD1480 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB00A32A53C14500FD1480 /* ViewController.swift */; };
 		4BFB00A92A53C14600FD1480 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00A82A53C14600FD1480 /* Assets.xcassets */; };
 		4BFB00AC2A53C14600FD1480 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB00AA2A53C14600FD1480 /* LaunchScreen.storyboard */; };
 		4BFB00B52A53D21700FD1480 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFB00B42A53D21700FD1480 /* Moya */; };
@@ -46,6 +45,12 @@
 		4BFB01142A54799600FD1480 /* ImageAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB01132A54799600FD1480 /* ImageAPI.swift */; };
 		4BFB01172A547BED00FD1480 /* CouponImageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB01162A547BED00FD1480 /* CouponImageResponse.swift */; };
 		4BFB011C2A54E5FD00FD1480 /* CouponInteractionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB011B2A54E5FD00FD1480 /* CouponInteractionViewController.swift */; };
+		4BFB01202A55308500FD1480 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4BFB011F2A55308400FD1480 /* GoogleService-Info.plist */; };
+		4BFB01232A55314F00FD1480 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFB01222A55314F00FD1480 /* FirebaseAnalytics */; };
+		4BFB01252A55314F00FD1480 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 4BFB01242A55314F00FD1480 /* FirebaseMessaging */; };
+		4BFB012A2A553BE800FD1480 /* DeleteCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB01292A553BE800FD1480 /* DeleteCouponViewController.swift */; };
+		4BFB012E2A5541B500FD1480 /* GiftCouponViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB012D2A5541B500FD1480 /* GiftCouponViewController.swift */; };
+		4BFB01302A5559B200FD1480 /* UIViewController+hideKeyboardWhenTappedAround.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BFB012F2A5559B200FD1480 /* UIViewController+hideKeyboardWhenTappedAround.swift */; };
 		880A42BF2A544B880073DDDC /* CouponRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 880A42BE2A544B880073DDDC /* CouponRegisterViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -53,7 +58,6 @@
 		4BFB009C2A53C14500FD1480 /* MB-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MB-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4BFB009F2A53C14500FD1480 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4BFB00A12A53C14500FD1480 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		4BFB00A32A53C14500FD1480 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4BFB00A82A53C14600FD1480 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4BFB00AB2A53C14600FD1480 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4BFB00AD2A53C14600FD1480 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -86,6 +90,11 @@
 		4BFB01132A54799600FD1480 /* ImageAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAPI.swift; sourceTree = "<group>"; };
 		4BFB01162A547BED00FD1480 /* CouponImageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponImageResponse.swift; sourceTree = "<group>"; };
 		4BFB011B2A54E5FD00FD1480 /* CouponInteractionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponInteractionViewController.swift; sourceTree = "<group>"; };
+		4BFB011F2A55308400FD1480 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4BFB01262A55328300FD1480 /* MB-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "MB-iOS.entitlements"; sourceTree = "<group>"; };
+		4BFB01292A553BE800FD1480 /* DeleteCouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteCouponViewController.swift; sourceTree = "<group>"; };
+		4BFB012D2A5541B500FD1480 /* GiftCouponViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCouponViewController.swift; sourceTree = "<group>"; };
+		4BFB012F2A5559B200FD1480 /* UIViewController+hideKeyboardWhenTappedAround.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+hideKeyboardWhenTappedAround.swift"; sourceTree = "<group>"; };
 		880A42BE2A544B880073DDDC /* CouponRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CouponRegisterViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,6 +105,8 @@
 			files = (
 				4BFB00BB2A53D23300FD1480 /* SnapKit in Frameworks */,
 				4BFB00B52A53D21700FD1480 /* Moya in Frameworks */,
+				4BFB01252A55314F00FD1480 /* FirebaseMessaging in Frameworks */,
+				4BFB01232A55314F00FD1480 /* FirebaseAnalytics in Frameworks */,
 				4BFB00EF2A53F84700FD1480 /* SwiftKeychainWrapper in Frameworks */,
 				4BFB00B82A53D22400FD1480 /* Then in Frameworks */,
 				4BFB01022A54471700FD1480 /* Kingfisher in Frameworks */,
@@ -124,6 +135,7 @@
 		4BFB009E2A53C14500FD1480 /* MB-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				4BFB01262A55328300FD1480 /* MB-iOS.entitlements */,
 				4BFB00C52A53E5D200FD1480 /* Resource */,
 				4BFB00FD2A543D4D00FD1480 /* Extension */,
 				4BFB00BC2A53E11000FD1480 /* Service */,
@@ -131,10 +143,10 @@
 				4BFB00BD2A53E12100FD1480 /* Scene */,
 				4BFB009F2A53C14500FD1480 /* AppDelegate.swift */,
 				4BFB00A12A53C14500FD1480 /* SceneDelegate.swift */,
-				4BFB00A32A53C14500FD1480 /* ViewController.swift */,
 				4BFB00A82A53C14600FD1480 /* Assets.xcassets */,
 				4BFB00AA2A53C14600FD1480 /* LaunchScreen.storyboard */,
 				4BFB00AD2A53C14600FD1480 /* Info.plist */,
+				4BFB011F2A55308400FD1480 /* GoogleService-Info.plist */,
 			);
 			path = "MB-iOS";
 			sourceTree = "<group>";
@@ -154,9 +166,11 @@
 		4BFB00BD2A53E12100FD1480 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				4BFB012B2A55418D00FD1480 /* GiftCoupon */,
+				4BFB01272A553BC600FD1480 /* DeleteCoupon */,
 				4BFB01182A54E56400FD1480 /* CouponInteraction */,
 				4BFB010D2A54743A00FD1480 /* UseCoupon */,
-				880A42BD2A544B6C0073DDDC /* Coupon */,
+				880A42BD2A544B6C0073DDDC /* CouponRegister */,
 				4BFB00F62A540FB900FD1480 /* Main */,
 				4BFB00DF2A53F10700FD1480 /* SignUp */,
 				4BFB00C02A53E36F00FD1480 /* Login */,
@@ -286,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				4BFB00FE2A543D6700FD1480 /* UIView+roundCorners.swift */,
+				4BFB012F2A5559B200FD1480 /* UIViewController+hideKeyboardWhenTappedAround.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -380,12 +395,44 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
-		880A42BD2A544B6C0073DDDC /* Coupon */ = {
+		4BFB01272A553BC600FD1480 /* DeleteCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB01282A553BD000FD1480 /* ViewController */,
+			);
+			path = DeleteCoupon;
+			sourceTree = "<group>";
+		};
+		4BFB01282A553BD000FD1480 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB01292A553BE800FD1480 /* DeleteCouponViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		4BFB012B2A55418D00FD1480 /* GiftCoupon */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB012C2A55419700FD1480 /* ViewController */,
+			);
+			path = GiftCoupon;
+			sourceTree = "<group>";
+		};
+		4BFB012C2A55419700FD1480 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				4BFB012D2A5541B500FD1480 /* GiftCouponViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		880A42BD2A544B6C0073DDDC /* CouponRegister */ = {
 			isa = PBXGroup;
 			children = (
 				880A42BE2A544B880073DDDC /* CouponRegisterViewController.swift */,
 			);
-			path = Coupon;
+			path = CouponRegister;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -410,6 +457,8 @@
 				4BFB00BA2A53D23300FD1480 /* SnapKit */,
 				4BFB00EE2A53F84700FD1480 /* SwiftKeychainWrapper */,
 				4BFB01012A54471700FD1480 /* Kingfisher */,
+				4BFB01222A55314F00FD1480 /* FirebaseAnalytics */,
+				4BFB01242A55314F00FD1480 /* FirebaseMessaging */,
 			);
 			productName = "MB-iOS";
 			productReference = 4BFB009C2A53C14500FD1480 /* MB-iOS.app */;
@@ -445,6 +494,7 @@
 				4BFB00B92A53D23300FD1480 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				4BFB00ED2A53F84700FD1480 /* XCRemoteSwiftPackageReference "SwiftKeychainWrapper" */,
 				4BFB01002A54471700FD1480 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				4BFB01212A55314E00FD1480 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 4BFB009D2A53C14500FD1480 /* Products */;
 			projectDirPath = "";
@@ -462,6 +512,7 @@
 			files = (
 				4BFB00D82A53E5F200FD1480 /* Roboto-Thin.ttf in Resources */,
 				4BFB00D42A53E5F200FD1480 /* Roboto-Medium.ttf in Resources */,
+				4BFB01202A55308500FD1480 /* GoogleService-Info.plist in Resources */,
 				4BFB00DA2A53E5F200FD1480 /* Roboto-Bold.ttf in Resources */,
 				4BFB00D72A53E5F200FD1480 /* Roboto-Regular.ttf in Resources */,
 				4BFB00AC2A53C14600FD1480 /* LaunchScreen.storyboard in Resources */,
@@ -494,15 +545,17 @@
 				4BFB00F82A540FE600FD1480 /* MainCouponViewController.swift in Sources */,
 				4BFB00BF2A53E32E00FD1480 /* LoginViewController.swift in Sources */,
 				4BFB01092A546DB800FD1480 /* CouponsResponse.swift in Sources */,
-				4BFB00A42A53C14500FD1480 /* ViewController.swift in Sources */,
 				4BFB010C2A546E8000FD1480 /* CouponModel.swift in Sources */,
 				4BFB00F22A5400DE00FD1480 /* AuthResponse.swift in Sources */,
 				4BFB00A02A53C14500FD1480 /* AppDelegate.swift in Sources */,
+				4BFB01302A5559B200FD1480 /* UIViewController+hideKeyboardWhenTappedAround.swift in Sources */,
 				4BFB00C42A53E42700FD1480 /* DefaultTextField.swift in Sources */,
 				4BFB011C2A54E5FD00FD1480 /* CouponInteractionViewController.swift in Sources */,
 				4BFB00A22A53C14500FD1480 /* SceneDelegate.swift in Sources */,
 				4BFB00E52A53F59E00FD1480 /* AuthAPI.swift in Sources */,
+				4BFB012A2A553BE800FD1480 /* DeleteCouponViewController.swift in Sources */,
 				4BFB00FF2A543D6700FD1480 /* UIView+roundCorners.swift in Sources */,
+				4BFB012E2A5541B500FD1480 /* GiftCouponViewController.swift in Sources */,
 				4BFB01062A5450DD00FD1480 /* CouponAPI.swift in Sources */,
 				880A42BF2A544B880073DDDC /* CouponRegisterViewController.swift in Sources */,
 			);
@@ -641,9 +694,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "MB-iOS/MB-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 629Q9H7922;
+				DEVELOPMENT_TEAM = 5G56CAU886;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MB-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -656,7 +710,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "comMB.MB-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "comTeamMB.MB-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -669,9 +723,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "MB-iOS/MB-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 629Q9H7922;
+				DEVELOPMENT_TEAM = 5G56CAU886;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MB-iOS/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -756,6 +811,14 @@
 				minimumVersion = 7.0.0;
 			};
 		};
+		4BFB01212A55314E00FD1480 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -783,6 +846,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 4BFB01002A54471700FD1480 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		4BFB01222A55314F00FD1480 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BFB01212A55314E00FD1480 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		4BFB01242A55314F00FD1480 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4BFB01212A55314E00FD1480 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

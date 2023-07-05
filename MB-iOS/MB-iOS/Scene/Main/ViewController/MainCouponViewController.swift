@@ -5,8 +5,29 @@ import Moya
 
 class MainCouponViewController: UIViewController {
 
-    var couponList: [CouponModel] = []
+    var couponList: [CouponModel] = [] {
+        didSet {
+            [
+                addCouponImageView,
+                emptyCouponTextField
+            ].forEach({ $0.isHidden = !couponList.isEmpty })
+            couponTableView.reloadData()
+            refreshControl.endRefreshing()
+        }
+    }
+    
+    private let refreshControl = UIRefreshControl()
 
+    private let addCouponImageView = UIImageView().then {
+        $0.image = UIImage(named: "add_coupon")
+        $0.isHidden = true
+    }
+    private let emptyCouponTextField = UILabel().then {
+        $0.text = "쿠폰을 등록해주세요."
+        $0.textColor = UIColor(named: "gray-2")
+        $0.font = UIFont(name: "Roboto-Bold", size: 15)
+        $0.isHidden = true
+    }
     private let mainTitleLabel = UILabel().then {
         $0.text = "내 쿠폰"
         $0.textColor = .black
@@ -17,6 +38,7 @@ class MainCouponViewController: UIViewController {
     }
 
     private let addCouponButton = UIButton(type: .system).then {
+        $0.tintColor = UIColor(named: "blue-1")
         $0.layer.shadowColor = UIColor.black.cgColor
         $0.layer.shadowOpacity = 0.2
         $0.layer.shadowRadius = 4
@@ -32,6 +54,8 @@ class MainCouponViewController: UIViewController {
         navigationItem.hidesBackButton = true
         settingTableView()
         addCouponButton.addTarget(self, action: #selector(clickAddCoupon), for: .touchUpInside)
+        couponTableView.refreshControl = refreshControl
+        couponTableView.refreshControl?.addTarget(self, action: #selector(pullToRefresh), for: .valueChanged)
     }
 
     override func viewDidLayoutSubviews() {
@@ -48,10 +72,21 @@ class MainCouponViewController: UIViewController {
             mainTitleLabel,
             couponTableView,
             addCouponButton,
+            addCouponImageView,
+            emptyCouponTextField
         ].forEach({ view.addSubview($0) })
     }
 
     private func makeConstraints() {
+        addCouponImageView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().offset(-30)
+            $0.width.height.equalTo(100)
+        }
+        emptyCouponTextField.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(addCouponImageView.snp.bottom).offset(28)
+        }
         mainTitleLabel.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
             $0.left.equalToSuperview().inset(36)
@@ -93,7 +128,6 @@ class MainCouponViewController: UIViewController {
                                     createdAt: $0.createdAt
                                 )
                             }
-                            self.couponTableView.reloadData()
                         }
                     } else {
                         print("get coupons json decode fail")
@@ -109,6 +143,10 @@ class MainCouponViewController: UIViewController {
 
     @objc func clickAddCoupon() {
         self.navigationController?.pushViewController(CouponRegisterViewController(), animated: true)
+    }
+
+    @objc func pullToRefresh() {
+        getCoupons()
     }
 }
 
@@ -144,10 +182,18 @@ extension MainCouponViewController: UITableViewDelegate, UITableViewDataSource {
                 self.present(couponUseView, animated: false)
             },
             giftAction: {
-                
+                let giftModal = GiftCouponViewController(id: self.couponList[indexPath.row].id, completion: {
+                    self.couponList.remove(at: indexPath.row)
+                    self.couponTableView.reloadData()
+                })
+                self.present(giftModal, animated: false)
             },
             deleteAction: {
-                
+                let deleteModal = DeleteCouponViewController(id: self.couponList[indexPath.row].id, completion: {
+                    self.couponList.remove(at: indexPath.row)
+                    self.couponTableView.reloadData()
+                })
+                self.present(deleteModal, animated: false)
             }
         )
         self.present(detailModal, animated: true)

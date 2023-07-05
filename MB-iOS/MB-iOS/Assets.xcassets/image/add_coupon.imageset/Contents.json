@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "plus_mark.svg",
+      "filename" : "add_coupon.svg",
       "idiom" : "universal"
     }
   ],
@@ -10,7 +10,6 @@
     "version" : 1
   },
   "properties" : {
-    "compression-type" : "automatic",
     "preserves-vector-representation" : true
   }
 }

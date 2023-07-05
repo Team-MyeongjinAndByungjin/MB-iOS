@@ -16,8 +16,8 @@ class CouponRegisterViewController: UIViewController {
         $0.textColor = .black
         $0.font = UIFont(name: "Roboto-Bold", size: 12)
     }
-    private let couponNameTextField = DefaultTextField(title: "이름", placeholder: "티켓 이름을 입력해주세요.")
-    private let priceTextField = DefaultTextField(title: "가격", placeholder: "티켓 가격을 입력해주세요.")
+    private let couponNameTextField = DefaultTextField(title: "이름", placeholder: "쿠폰 이름을 입력해주세요.")
+    private let fromTextField = DefaultTextField(title: "준사람", placeholder: "쿠폰을 준사람을 입력해주세요.")
     private let expirationDateTextField = DefaultTextField(title: "유효기간", placeholder: "ex)2023-07-04")
     private let cancelButton = UIButton(type: .system).then {
         $0.setTitle("취소", for: .normal)
@@ -49,6 +49,7 @@ class CouponRegisterViewController: UIViewController {
         navigationItem.hidesBackButton = true
         cancelButton.addTarget(self, action: #selector(clickCancelButton), for: .touchUpInside)
         registerButton.addTarget(self, action: #selector(registerCoupon), for: .touchUpInside)
+        hideKeyboardWhenTappedAround()
     }
     
     override func viewDidLayoutSubviews() {
@@ -67,7 +68,7 @@ class CouponRegisterViewController: UIViewController {
             imageTitle,
             imageView,
             couponNameTextField,
-            priceTextField,
+            fromTextField,
             expirationDateTextField,
             cancelButton,
             registerButton,
@@ -92,12 +93,12 @@ class CouponRegisterViewController: UIViewController {
             $0.top.equalTo(imageView.snp.bottom).offset(40)
             $0.left.right.equalToSuperview().inset(36)
         }
-        priceTextField.snp.makeConstraints {
+        fromTextField.snp.makeConstraints {
             $0.top.equalTo(couponNameTextField.snp.bottom).offset(40)
             $0.left.right.equalToSuperview().inset(36)
         }
         expirationDateTextField.snp.makeConstraints {
-            $0.top.equalTo(priceTextField.snp.bottom).offset(40)
+            $0.top.equalTo(fromTextField.snp.bottom).offset(40)
             $0.left.right.equalToSuperview().inset(36)
         }
         cancelButton.snp.makeConstraints {
@@ -150,7 +151,7 @@ class CouponRegisterViewController: UIViewController {
     }
 
     @objc func registerCoupon() {
-        guard let price = Int(self.priceTextField.text ?? ""),
+        guard let from = self.fromTextField.text,
         let name = self.couponNameTextField.text,
         let expiredAt = self.expirationDateTextField.text else {
             return
@@ -158,7 +159,7 @@ class CouponRegisterViewController: UIViewController {
                   
         let provider = MoyaProvider<CouponAPI>(plugins: [MoyaLoggerPlugin()])
 
-        provider.request(.saveCoupon(imageURL: self.selectImageURL, price: price, name: name, expiredAt: expiredAt)) { res in
+        provider.request(.saveCoupon(imageURL: self.selectImageURL, from: from, name: name, expiredAt: expiredAt)) { res in
             switch res {
             case .success(let result):
                 switch result.statusCode {

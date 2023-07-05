@@ -5,7 +5,7 @@ struct Token {
     static var localAccessToken: String?
     static var accessToken: String? {
         get {
-            localAccessToken =  KeychainWrapper.standard.string(forKey: "acccess_token")
+            localAccessToken = KeychainWrapper.standard.string(forKey: "acccess_token")
             return localAccessToken
         }
         set(newToken) {

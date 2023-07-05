@@ -2,7 +2,7 @@ import Foundation
 import Moya
 
 enum AuthAPI {
-    case login(id: String, password: String)
+    case login(id: String, password: String, fcmToken: String)
     case signUp(id: String, password: String)
 }
 
@@ -26,11 +26,12 @@ extension AuthAPI: TargetType {
 
     var task: Moya.Task {
         switch self {
-        case .login(let id, let password):
+        case .login(let id, let password, let fcmToken):
             return .requestParameters(
                 parameters: [
                     "account_id": id,
-                    "password": password
+                    "password": password,
+                    "device_token": fcmToken
                 ], encoding: JSONEncoding.default)
         case .signUp(let id, let password):
             return .requestParameters(

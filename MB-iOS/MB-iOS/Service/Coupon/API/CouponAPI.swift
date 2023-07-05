@@ -3,7 +3,7 @@ import Moya
 
 enum CouponAPI {
     case getCoupons
-    case saveCoupon(imageURL: String, price: Int, name: String, expiredAt: String)
+    case saveCoupon(imageURL: String, from: String, name: String, expiredAt: String)
     case deleteCoupon(couponID: Int)
     case giveCouponToUser(couponID: Int, receiveUserID: String)
 }
@@ -37,11 +37,11 @@ extension CouponAPI: TargetType {
     
     var task: Moya.Task {
         switch self {
-        case .saveCoupon(let imageURL, let price, let name, let expiredAt):
+        case .saveCoupon(let imageURL, let from, let name, let expiredAt):
             return .requestParameters(
                 parameters: [
                     "name": name,
-                    "price": price,
+                    "from": from,
                     "image_url": imageURL,
                     "expired_at": expiredAt
                 ],
