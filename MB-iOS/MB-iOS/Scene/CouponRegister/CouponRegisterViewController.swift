@@ -12,7 +12,6 @@ class CouponRegisterViewController: UIViewController {
         $0.datePickerMode = .date
         $0.preferredDatePickerStyle = .compact
     }
-
     private let mainTitle = UILabel().then {
         $0.text = "쿠폰 등록"
         $0.textColor = .black
@@ -24,13 +23,12 @@ class CouponRegisterViewController: UIViewController {
         $0.font = UIFont(name: "Roboto-Bold", size: 12)
     }
     private let couponNameTextField = DefaultTextField(title: "이름", placeholder: "쿠폰 이름을 입력해주세요.")
-    private let fromTextField = DefaultTextField(title: "준사람", placeholder: "쿠폰을 준사람을 입력해주세요.")
+    private let fromTextField = DefaultTextField(title: "보낸사람", placeholder: "쿠폰을 보낸사람을 입력해주세요.")
     private let dateSelectTitleLabel = UILabel().then {
         $0.text = "유효기간"
         $0.textColor = .black
         $0.font = UIFont(name: "Roboto-Bold", size: 12)
     }
-//    private let expirationDateTextField = DefaultTextField(title: "유효기간", placeholder: "ex)2023-07-04")
     private let cancelButton = UIButton(type: .system).then {
         $0.setTitle("취소", for: .normal)
         $0.setTitleColor(UIColor.white, for: .normal)
@@ -119,10 +117,6 @@ class CouponRegisterViewController: UIViewController {
             $0.left.equalToSuperview().inset(38)
             $0.height.equalTo(44)
         }
-//        expirationDateTextField.snp.makeConstraints {
-//            $0.top.equalTo(fromTextField.snp.bottom).offset(40)
-//            $0.left.right.equalToSuperview().inset(36)
-//        }
         cancelButton.snp.makeConstraints {
             $0.bottom.equalTo(registerButton.snp.top).offset(-10)
             $0.left.right.equalToSuperview().inset(36)

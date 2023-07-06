@@ -12,6 +12,10 @@ import Moya
 import SwiftKeychainWrapper
 
 class LoginViewController: UIViewController {
+    private let backButton = UIBarButtonItem().then {
+        $0.image = UIImage(named: "arrow")
+        $0.tintColor = UIColor(named: "gray-2")
+    }
     private let mainTitle = UILabel().then {
         $0.text = "로그인"
         $0.textColor = .black
@@ -45,6 +49,9 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        navigationItem.backBarButtonItem = backButton
+        navigationController?.navigationBar.backIndicatorImage = UIImage()
+        navigationController?.navigationBar.backIndicatorTransitionMaskImage = UIImage()
         loginButton.addTarget(self, action: #selector(clickLoginButton), for: .touchUpInside)
         signInButton.addTarget(self, action: #selector(clickSingUpButton), for: .touchUpInside)
         hideKeyboardWhenTappedAround()
